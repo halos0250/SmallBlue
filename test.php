@@ -114,6 +114,7 @@ class test
 
             if(isset($this->fetch_array))
             {
+                /* header前面不能有輸出，例如:echo...; header(...); 或者(很重要)，同一頁CSS寫太多，用外部連結CSS就解決了 */
                 header("Location: index.php");
             }
             else

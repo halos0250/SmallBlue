@@ -17,8 +17,30 @@
 
     <!-- style -->
     <style>
-        footer{
-            margin-top: 50px;
+
+        body{
+            background: #FFF7E8;
+        }
+        main{
+            margin: 30px 0;
+        }
+
+        .navbar{
+            padding: 15px 0;
+        }
+        /* 修改bootstrap的導覽列 */
+        .navbar-expand-sm .navbar-collapse{
+            justify-content: space-between;
+        }
+
+        .input-group{
+            border: 4px solid white;
+            width: 600px;
+        }
+
+        /* 修改bootstrap的form格式 */
+        .form-control{
+            border-radius: 0;
         }
         
         .carousel-item{
@@ -46,7 +68,11 @@
         #category{
             text-align: center;
         }
-        
+
+        footer{
+            margin-top: 50px;
+        }
+
     </style>
 
 </head>
@@ -60,21 +86,46 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                        <a class="nav-link" href="javascript:void(0)">通知</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                        <a class="nav-link" href="javascript:void(0)">賣場</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                        <a class="nav-link" href="javascript:void(0)">賣家中心</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="text" placeholder="Search">
-                    <button class="btn btn-primary" type="button">Search</button>
-                </form>
+                <ul class="navbar-nav">
+                    <?php
+                    //搜尋
+                    echo "<li class='nav-item'>
+                            <form method='POST'>
+                                <div class='input-group'>
+                                    <input type='text' class='form-control' placeholder='搜尋' name='search'>
+                                    <button class='btn btn-dark' type='submit'>Go</button> 
+                                </div>
+                            </form>
+                          </li>";
+                    header("#");
+                    ?>
+                </ul>
+                <ul class="navbar-nav">
+                    <?php
+                    //顯示會員
+                    echo "<li class='nav-item'><a class='nav-link' href='login.php'>";
+                    session_start();
+                    if($_SESSION['name'] == null)
+                        echo "會員登入</li></a>";
+                    else
+                    {
+                        echo "歡迎".$_SESSION['name']."</li></a>";
+                        //跳destroy.php執行session destroy
+                        echo "<li class='nav-item'><a class='nav-link' href='destroy.php'>登出</a></li>";
+                    }
+                    ?>
+                </ul>
             </div>
         </div>
     </nav>
