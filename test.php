@@ -206,7 +206,7 @@ class test
     public function ProductDetail($p_id){
         $this->DBLink_Query("SELECT * FROM `product` WHERE p_id='$p_id'", "fetch_array");
 
-        $prise=$this->fetch_array['price']*4/3;
+        $prise=round($this->fetch_array['price']*4/3);
         echo "
             <section class='product'>
                 <div class='product-pic'>
@@ -222,7 +222,7 @@ class test
                     <table>
                     <tr>
                         <td>數量：</td>
-                        <td></td>
+                        <td><input type='number' name='quantity' min='0' value='1'></td>
                     </tr>
                     <tr>
                         <td>剩餘數量：</td>
@@ -238,7 +238,7 @@ class test
     
             <section>
                 <p>商品描述：</p>
-                <pre>".$this->fetch_array['price']."</pre>
+                <pre>".$this->fetch_array['p_des']."</pre>
             </section>
         ";
     }

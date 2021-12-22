@@ -81,10 +81,14 @@
             <button type="button" data-bs-target="#advertisement" data-bs-slide-to="0" class="active"></button>
             <button type="button" data-bs-target="#advertisement" data-bs-slide-to="1"></button>
             <button type="button" data-bs-target="#advertisement" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#advertisement" data-bs-slide-to="3"></button>
         </div>
 
         <div class="carousel-inner">
             <div class="carousel-item bg-secondary active">
+                <img class="d-block" src="images/廣告1.png">
+            </div>
+            <div class="carousel-item bg-secondary">
                 <img class="d-block" src="images/test1.jfif">
             </div>
             <div class="carousel-item bg-secondary">

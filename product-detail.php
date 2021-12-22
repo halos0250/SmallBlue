@@ -18,6 +18,10 @@
     <!-- style -->
     <style>
 
+        pre{
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
         body{
             background: #FFF7E8;
         }
@@ -222,6 +226,12 @@
             </div>
             <div>
                 <p>家電</p>
+            </div>
+            <div>
+                <p>零食</p>
+            </div>
+            <div>
+                <p>書</p>
             </div>
             <div>
                 <p>其他</p>
