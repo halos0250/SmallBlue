@@ -16,64 +16,7 @@
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- style -->
-    <style>
-
-        body{
-            background: #FFF7E8;
-        }
-        main{
-            margin: 30px 0;
-        }
-
-        .navbar{
-            padding: 15px 0;
-        }
-        /* 修改bootstrap的導覽列 */
-        .navbar-expand-sm .navbar-collapse{
-            justify-content: space-between;
-        }
-
-        .input-group{
-            border: 4px solid white;
-            width: 600px;
-        }
-
-        /* 修改bootstrap的form格式 */
-        .form-control{
-            border-radius: 0;
-        }
-        
-        .carousel-item{
-            height: 300px;
-        }
-        .carousel-item > img {
-            height: 100%;
-            margin: auto;
-        }
-        
-        #btn{
-            margin-top: 50px;
-        }
-        #btn > img{
-            height: 50px;
-            max-width: 100%;
-            margin: auto;
-        }
-        #btn > p{
-            margin-top: 5px;
-            text-align: center;
-            /*font-family: 微軟正黑體;*/
-            font-size: large;
-        }
-        #category{
-            text-align: center;
-        }
-
-        footer{
-            margin-top: 50px;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
@@ -98,17 +41,18 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
+                    <li class='nav-item'>
+                        <form method='POST'>
+                            <div class='input-group'>
+                                <input type='text' class='form-control' placeholder='搜尋' name='search'>
+                                <button class='btn btn-dark' type='submit'>Go</button>
+                            </div>
+                        </form>
+                    </li>
                     <?php
-                    //搜尋
-                    echo "<li class='nav-item'>
-                            <form method='POST'>
-                                <div class='input-group'>
-                                    <input type='text' class='form-control' placeholder='搜尋' name='search'>
-                                    <button class='btn btn-dark' type='submit'>Go</button> 
-                                </div>
-                            </form>
-                          </li>";
-                    header("#");
+                    //跳轉搜尋
+                    if($_POST['search'] != null)
+                        header("Location: search.php?search=".$_POST['search']);
                     ?>
                 </ul>
                 <ul class="navbar-nav">
@@ -203,6 +147,7 @@
                     <img class="card-img-top" src="images/顧客關係.jfif" alt="">
                     <div class="card-body">
                         <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <a href="product-detail.php?p_id=1" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
