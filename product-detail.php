@@ -168,17 +168,18 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
+                    <li class='nav-item'>
+                        <form method='POST'>
+                            <div class='input-group'>
+                                <input type='text' class='form-control' placeholder='搜尋' name='search'>
+                                <button class='btn btn-dark' type='submit'>Go</button>
+                            </div>
+                        </form>
+                    </li>
                     <?php
-                    //搜尋
-                    echo "<li class='nav-item'>
-                            <form method='POST'>
-                                <div class='input-group'>
-                                    <input type='text' class='form-control' placeholder='搜尋' name='search'>
-                                    <button class='btn btn-dark' type='submit'>Go</button> 
-                                </div>
-                            </form>
-                          </li>";
-                    header("#");
+                    //跳轉搜尋
+                    if($_POST['search'] != null)
+                        header("Location: search.php?search=".$_POST['search']);
                     ?>
                 </ul>
                 <ul class="navbar-nav">
