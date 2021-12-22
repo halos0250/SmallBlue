@@ -32,18 +32,18 @@ class test
                 echo "查無結果";
             else
             {
+                echo "<h2>$search 的查詢結果</h2>";
                 echo "<div class='row'>";
                 foreach ($this->fetch_all as $item)
                 {
                     echo"
                         <div class='col-lg-2 col-sm-4 portfolio-item'>
-                          <div class='card h-100'>
+                          <div class='card h-100' text-center>
                             <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'></a>
                             <div class='card-body'>
-                              <h4 class='card-title'>
-                                <a href='index.php'>".$item['p_name']."</a>
-                              </h4>
+                              <h4 class='card-title'>".$item['p_name']."</h4>
                               <p class='card-text'>NT$ ".$item['price']."</p>
+                              <a href='product-detail.php?p_id=".$item['p_id']."' class='stretched-link'></a>
                             </div>
                           </div>
                         </div>
