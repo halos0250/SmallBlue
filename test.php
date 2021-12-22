@@ -16,7 +16,7 @@ class test
             $this->result = mysqli_query($db_link, $sql);
             $this->fetch_all = mysqli_fetch_all($this->result, MYSQLI_ASSOC);//默認是數字
         }elseif ($fetch == "fetch_array")
-        {//擷取第一行(row)的資料，Array[]
+        {//擷取一行(row)的資料，再次擷取會是第二行資料以此類推，Array[]
             $this->result = mysqli_query($db_link, $sql);
             $this->fetch_array = mysqli_fetch_array($this->result);
         }
@@ -24,10 +24,9 @@ class test
 
     public function SearchResults($search)
     {
-        if($search['search']!=null)
+        if($search!=null)
         {
-            $this->DBLink_Query("SELECT `p_id`, `id`, `p_name`, `p_des`, `p_image`, `p_categ`, `price`, `p_quan` 
-                                    FROM `product` WHERE p_name LIKE '%123'", "fetch_all");
+            $this->DBLink_Query("SELECT * FROM `product` WHERE p_name LIKE '%$search%'", "fetch_all");
 
             if($this->fetch_all == null)
                 echo "查無結果";
@@ -37,14 +36,14 @@ class test
                 foreach ($this->fetch_all as $item)
                 {
                     echo"
-                        <div class='col-lg-3 col-sm-6 portfolio-item'>
+                        <div class='col-lg-2 col-sm-4 portfolio-item'>
                           <div class='card h-100'>
                             <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'></a>
                             <div class='card-body'>
                               <h4 class='card-title'>
                                 <a href='index.php'>".$item['p_name']."</a>
                               </h4>
-                              <p class='card-text'>NT$ ".$item['price']."<br>".$item['p_des']."</p>
+                              <p class='card-text'>NT$ ".$item['price']."</p>
                             </div>
                           </div>
                         </div>
@@ -57,7 +56,7 @@ class test
     }
 
     public function Cart($act, $product_id, $customer_id)
-    {
+    {//add delete display
         //使用購物車
         switch ($act)
         {
@@ -101,7 +100,7 @@ class test
     public function Login($name, $pwd)
     {
         session_start();
-        if(isset($name, $pwd))
+        if($name != null && $pwd != null)
         {
             $_SESSION['name'] = $name;
             $_SESSION['pwd'] = $pwd;
@@ -129,7 +128,7 @@ class test
 
     public function Register($name, $pwd, $phone, $sex)
     {
-        if(isset($name, $pwd, $phone, $sex))
+        if($name != null && $pwd != null && $phone != null && $sex != null)
         {
             //搜尋帳號是否已被申請
             $this->DBLink_Query("SELECT * FROM `customer` where c_name = '$name'", "fetch_array");
@@ -154,4 +153,94 @@ class test
             }
         }
     }
+
+    public function Product($act, $name = null, $description = null, $image = null, $category = null, $price = null, $quantity = null)
+    {//add
+        switch ($act)
+        {
+            case "add":
+                if($name != null && $description != null && $image != null && $category != null && $price != null && $quantity != null)
+                {
+                    //自動編號碼
+                    $this->DBLink_Query("SELECT p_id FROM `product` order by p_id DESC", "fetch_array");
+                    $id = $this->fetch_array['p_id'] + 1;
+
+                    //新增商品
+                    $this->DBLink_Query("INSERT INTO `product`(`p_id`,`id`,`p_name`,`p_des`,`p_image`,`p_categ`,`price`,`p_quan`) VALUES 
+                    ('$id', '1', '$name', '$description', '$image', '$category', '$price', '$quantity')");
+                }
+                break;
+            case "delete":
+                //
+                break;
+        }
+
+        //display
+        $this->DBLink_Query("SELECT * FROM `product` ORDER BY `p_id` DESC", "fetch_all");
+        foreach ($this->fetch_all as $item){
+            echo "<div class='display-group'>";
+            echo "
+                        <img src='images/".$item['p_image']."'>
+                        <div class='display-item'>
+                            <div>
+                                <span>產品名稱：".$item['p_name']."</span>
+                            </div>
+                            <div>
+                                <span>產品描述：".$item['p_des']."</span>
+                            </div>
+                            <div>
+                                <span>產品類型：".$item['p_categ']."</span>
+                            </div>
+                            <div>
+                                <span>售價：$".$item['price']."</span>
+                            </div>
+                            <div>
+                                <span>數量：".$item['p_quan']."</span>
+                            </div>
+                        </div>
+                        ";
+            echo "</div>";
+        }
+    }
+
+    public function ProductDetail($p_id){
+        $this->DBLink_Query("SELECT * FROM `product` WHERE p_id='$p_id'", "fetch_array");
+
+        $prise=$this->fetch_array['price']*4/3;
+        echo "
+            <section class='product'>
+                <div class='product-pic'>
+                    <img src='images/".$this->fetch_array['p_image']."'>
+                </div>
+    
+                <div class='product-detail'>
+                    <h1>".$this->fetch_array['p_name']."</h1>
+                    <div class='prise'>
+                        <span>原價：$$prise</span>
+                        <h2>$".$this->fetch_array['price']."</h2>
+                    </div>
+                    <table>
+                    <tr>
+                        <td>數量：</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>剩餘數量：</td>
+                        <td>".$this->fetch_array['p_quan']."件</td>
+                    </tr>
+                    </table>
+                    <div class='cart'>
+                        <a href='#' class=''>加入購物車</a>
+                        <a href='#' class=''>直接購買</a>
+                    </div>
+                </div>
+            </section>
+    
+            <section>
+                <p>商品描述：</p>
+                <pre>".$this->fetch_array['price']."</pre>
+            </section>
+        ";
+    }
+
 }
