@@ -22,12 +22,12 @@ class test
         }
     }
 
-    public function SearchResults($search)
+    public function SearchResults_SaveHistory($search)
     {
         if($search!=null)
         {
+            //搜尋結果
             $this->DBLink_Query("SELECT * FROM `product` WHERE p_name LIKE '%$search%'", "fetch_all");
-
             if($this->fetch_all == null)
                 echo "查無結果";
             else
@@ -52,6 +52,10 @@ class test
                 echo "</div>";
                 echo "<hr>";
             }
+
+            //儲存紀錄(類別)
+            $save=$this->fetch_all[0]['p_categ'];
+            $this->DBLink_Query("INSERT INTO `history`(`id`, `h`) VALUES (11, '$save')");
         }
     }
 
@@ -167,7 +171,7 @@ class test
 
                     //新增商品
                     $this->DBLink_Query("INSERT INTO `product`(`p_id`,`id`,`p_name`,`p_des`,`p_image`,`p_categ`,`price`,`p_quan`) VALUES 
-                    ('$id', '1', '$name', '$description', '$image', '$category', '$price', '$quantity')");
+                    ('$id', '11', '$name', '$description', '$image', '$category', '$price', '$quantity')");
                 }
                 break;
             case "delete":
@@ -206,7 +210,7 @@ class test
     public function ProductDetail($p_id){
         $this->DBLink_Query("SELECT * FROM `product` WHERE p_id='$p_id'", "fetch_array");
 
-        $prise=$this->fetch_array['price']*4/3;
+        $prise=round($this->fetch_array['price']*4/3);
         echo "
             <section class='product'>
                 <div class='product-pic'>
@@ -241,6 +245,52 @@ class test
                 <pre>".$this->fetch_array['price']."</pre>
             </section>
         ";
+    }
+
+    public function Category($category)
+    {
+        $this->DBLink_Query("SELECT * FROM `product` WHERE p_categ = '$category'", "fetch_all");
+        foreach ($this->fetch_all as $item)
+        {
+            echo"
+                <div class='col-lg-3 col-sm-6 portfolio-item'>
+                  <div class='card h-100'>
+                    <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'></a>
+                    <div class='card-body'>
+                      <h4 class='card-title'>
+                        <a href='product-detail.php'>".$item['p_name']."</a>
+                      </h4>
+                      <p class='card-text'>NT$ ".$item['price']."</p>
+                    </div>
+                  </div>
+                </div>
+                ";
+        }
+    }
+
+    public function HistorySearch(){
+        $this->DBLink_Query("SELECT `h` FROM `history` WHERE id=11", "fetch_array");
+        $category=$this->fetch_array[0];
+
+        $this->DBLink_Query("SELECT `p_id`, `p_name`, `p_image` FROM `product` WHERE p_categ='$category'", "fetch_all");
+        $item=$this->fetch_all;
+        for ($i=0; $i<6; $i++)
+        {
+            if($item[$i]['p_id'] != null)
+            {
+                echo "
+                    <div class='col-lg-2'>
+                        <div class='card h-100 text-center'>
+                            <img class='card-img-top' src='images/".$item[$i]['p_image']."' alt='".$item[$i]['p_image']."'>
+                            <div class='card-body'>
+                                <p class='card-text'>".$item[$i]['p_name']."</p>
+                                <a href='product-detail.php?p_id=".$item[$i]['p_id']."' class='stretched-link'></a>     
+                            </div>
+                        </div>
+                    </div>
+                    ";
+            }
+        }
     }
 
 }

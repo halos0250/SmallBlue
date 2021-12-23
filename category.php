@@ -90,25 +90,25 @@
 
 <main class="container">
 
-    <!-- 搜尋欄 -->
     <form method='GET'>
         <div class="input-group mb-3 mt-3">
-            <input type="text" class="form-control" placeholder="搜尋" name="search">
+            <input type="text" class="form-control" placeholder="搜尋" name="category">
             <button class="btn btn-secondary" type="submit">Go</button>
         </div>
 
         <?php
         include "test.php";
 
-        if($_GET['search'] != null){
-            echo "<h4>".$_GET['search']." 的搜尋結果</h4>";
+        if($_GET['category'] != null){
+            echo "<h4>".$_GET['category']." 的搜尋結果</h4>";
         }
 
         $SearchResults = new test();
-        $SearchResults->SearchResults_SaveHistory($_GET['search']);
+        $SearchResults->Category($_GET['category']);
         ?>
 
     </form>
+
 </main>
 
 <footer class="fixed-bottom py-5 bg-dark">
@@ -118,7 +118,6 @@
 </footer>
 
 </body>
-
 
 
 
