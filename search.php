@@ -11,6 +11,7 @@
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- style -->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
         footer{
             margin-top: 50px;
@@ -99,10 +100,6 @@
 
         <?php
         include "test.php";
-
-        if($_GET['search'] != null){
-            echo "<h4>".$_GET['search']." 的搜尋結果</h4>";
-        }
 
         $SearchResults = new test();
         $SearchResults->SearchResults_SaveHistory($_GET['search']);

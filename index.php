@@ -191,51 +191,69 @@
     <article>
         <h2 class="my-4">暢銷商品</h2>
         <section class="row">
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
@@ -243,51 +261,69 @@
 
         <h2 class="my-4">最新商品</h2>
         <section class="row">
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
+            <div class="col-lg-2 col-sm-6">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="images/顧客關係.jfif" alt="HyperX Alloy Origins.png">
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
+                        <p class="card-text">【現貨】顧客關係管理【現貨】顧客關係管理</p>
+                        <span>$200</span>
                     </div>
                 </div>
             </div>

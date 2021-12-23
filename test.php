@@ -37,15 +37,17 @@ class test
                 foreach ($this->fetch_all as $item)
                 {
                     echo"
-                        <div class='col-lg-2 col-sm-4 portfolio-item'>
-                          <div class='card h-100' text-center>
-                            <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'></a>
-                            <div class='card-body'>
-                              <h4 class='card-title'>".$item['p_name']."</h4>
-                              <p class='card-text'>NT$ ".$item['price']."</p>
-                              <a href='product-detail.php?p_id=".$item['p_id']."' class='stretched-link'></a>
+                        <div class='col-lg-2 col-sm-6'>
+                            <div class='card'>
+                                <div class='card-img'>
+                                    <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'>
+                                </div>
+                                <div class='card-body'>
+                                    <p class='card-text'>".$item['p_name']."</p>
+                                    <span>NT$ '".$item['price']."'</span>
+                                    <a href='product-detail.php?p_id=".$item['p_id']."' class='stretched-link'></a>
+                                </div>
                             </div>
-                          </div>
                         </div>
                         ";
                 }
@@ -55,7 +57,7 @@ class test
 
             //儲存紀錄(類別)
             $save=$this->fetch_all[0]['p_categ'];
-            $this->DBLink_Query("INSERT INTO `history`(`id`, `h`) VALUES (11, '$save')");
+            $this->DBLink_Query("INSERT INTO `history`(`id`, `h`) VALUES (1, '$save')");#
         }
     }
 
@@ -76,22 +78,23 @@ class test
                 $this->DBLink_Query("DELETE FROM `cart` WHERE `p_id` = $product_id");
                 break;
             case "display":
-                $this->DBLink_Query("SELECT `p_name`, `p_des`, `p_image`, `price` FROM `product`, `cart`, `customer`
+                $this->DBLink_Query("SELECT `p_id`, `p_name`, `p_des`, `p_image`, `price` FROM `product`, `cart`, `customer`
                                             WHERE `product`.`p_id` = `cart`.`p_id` AND `customer`.`id` = $customer_id", "fetch_all");
                 echo "<div class='row'>";
                 foreach ($this->fetch_all as $item)
                 {
                     echo"
-                        <div class='col-lg-3 col-sm-6 portfolio-item'>
-                          <div class='card h-100'>
-                            <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'></a>
-                            <div class='card-body'>
-                              <h4 class='card-title'>
-                                <a href='index.php'>".$item['p_name']."</a>
-                              </h4>
-                              <p class='card-text'>NT$ ".$item['price']."<br>".$item['p_des']."</p>
+                        <div class='col-lg-2 col-sm-6'>
+                            <div class='card'>
+                                <div class='card-img'>
+                                    <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'>
+                                </div>
+                                <div class='card-body'>
+                                    <p class='card-text'>'".$item['p_name']."'</p>
+                                    <span>NT$ '".$item['price']."'</span>
+                                    <a href='product-detail.php?p_id=".$item['p_id']."' class='stretched-link'></a>
+                                </div>
                             </div>
-                          </div>
                         </div>
                         ";
                 }
@@ -110,6 +113,7 @@ class test
             $_SESSION['pwd'] = $pwd;
         }
 
+        //isset: null無設置->false; ""有設置(空值)->true
         if (isset($_SESSION['name'], $_SESSION['pwd']))
         {
             //搜尋帳號密碼是否正確
@@ -171,7 +175,7 @@ class test
 
                     //新增商品
                     $this->DBLink_Query("INSERT INTO `product`(`p_id`,`id`,`p_name`,`p_des`,`p_image`,`p_categ`,`price`,`p_quan`) VALUES 
-                    ('$id', '11', '$name', '$description', '$image', '$category', '$price', '$quantity')");
+                    ('$id', '1', '$name', '$description', '$image', '$category', '$price', '$quantity')");#
                 }
                 break;
             case "delete":
@@ -252,39 +256,44 @@ class test
         $this->DBLink_Query("SELECT * FROM `product` WHERE p_categ = '$category'", "fetch_all");
         foreach ($this->fetch_all as $item)
         {
-            echo"
-                <div class='col-lg-3 col-sm-6 portfolio-item'>
-                  <div class='card h-100'>
-                    <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'></a>
-                    <div class='card-body'>
-                      <h4 class='card-title'>
-                        <a href='product-detail.php'>".$item['p_name']."</a>
-                      </h4>
-                      <p class='card-text'>NT$ ".$item['price']."</p>
+            echo "
+                <div class='col-lg-2 col-sm-6'>
+                    <div class='card'>
+                        <div class='card-img'>
+                            <img class='card-img-top' src='./images/".$item['p_image']."' alt='".$item['p_image']."'>
+                        </div>
+                        <div class='card-body'>
+                            <p class='card-text'>'".$item['p_name']."'</p>
+                            <span>NT$ '".$item['price']."'</span>
+                            <a href='product-detail.php?p_id=".$item['p_id']."' class='stretched-link'></a>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                ";
+                  ";
+
         }
     }
 
     public function HistorySearch(){
-        $this->DBLink_Query("SELECT `h` FROM `history` WHERE id=11", "fetch_array");
+        $this->DBLink_Query("SELECT `h` FROM `history` WHERE id=1", "fetch_array");#
         $category=$this->fetch_array[0];
 
-        $this->DBLink_Query("SELECT `p_id`, `p_name`, `p_image` FROM `product` WHERE p_categ='$category'", "fetch_all");
+        $this->DBLink_Query("SELECT `p_id`, `p_name`, `p_image`, `price` FROM `product` WHERE p_categ='$category'", "fetch_all");
         $item=$this->fetch_all;
         for ($i=0; $i<6; $i++)
         {
             if($item[$i]['p_id'] != null)
             {
                 echo "
-                    <div class='col-lg-2'>
-                        <div class='card h-100 text-center'>
-                            <img class='card-img-top' src='images/".$item[$i]['p_image']."' alt='".$item[$i]['p_image']."'>
+                    <div class='col-lg-2 col-sm-6'>
+                        <div class='card'>
+                            <div class='card-img'>
+                                <img class='card-img-top' src='./images/".$item[$i]['p_image']."' alt='".$item[$i]['p_image']."'>
+                            </div>
                             <div class='card-body'>
-                                <p class='card-text'>".$item[$i]['p_name']."</p>
-                                <a href='product-detail.php?p_id=".$item[$i]['p_id']."' class='stretched-link'></a>     
+                                <p class='card-text'>'".$item[$i]['p_name']."'</p>
+                                <span>NT$ '".$item[$i]['price']."'</span>
+                                <a href='product-detail.php?p_id=".$item[$i]['p_id']."' class='stretched-link'></a>
                             </div>
                         </div>
                     </div>
@@ -292,5 +301,18 @@ class test
             }
         }
     }
-
 }
+/*########
+<div class='col-lg-2 col-sm-6'>
+    <div class='card'>
+        <div class='card-img'>
+            <img class='card-img-top' src='./images/".$item['']."' alt='".$item['']."'>
+        </div>
+        <div class='card-body'>
+            <p class='card-text'>'".$item['']."'</p>
+            <span>NT$ '".$item['']."'</span>
+            <a href='product-detail.php' class='stretched-link'></a>
+        </div>
+    </div>
+</div>
+#######*/

@@ -11,6 +11,7 @@
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- style -->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
         footer{
             margin-top: 50px;
