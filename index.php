@@ -146,55 +146,12 @@
     <article>
         <h2 class="my-4">推薦商品</h2>
         <section class="row">
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
-                    <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
-                        <a href="product-detail.php?p_id=1" class="stretched-link"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
-                    <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
-                    <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
-                    <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
-                    <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card h-100 text-center">
-                    <img class="card-img-top" src="images/顧客關係.jfif" alt="">
-                    <div class="card-body">
-                        <p class="card-text">【現貨】顧客關係管理：觀念、策略與工具 Kumar/黃明蕙 雙葉</p>
-                    </div>
-                </div>
-            </div>
+            <?php
+            include "test.php";
+
+            $aaa=new test();
+            $aaa->HistorySearch();
+            ?>
         </section>
     </article>
 

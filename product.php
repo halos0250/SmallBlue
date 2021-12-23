@@ -48,10 +48,12 @@
         .display-group{
             padding: 10px 30px;
             display: flex;
+            align-items: center;
         }
         .display-group img{
-             width: 200px;
-             height: auto;
+            width: 200px;
+            height: fit-content;
+
          }
         .display-item{
             padding: 10px 20px;

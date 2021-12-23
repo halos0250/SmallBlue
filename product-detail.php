@@ -111,6 +111,25 @@
             font-size: 16px;
             display: block;
         }
+        .product-category a{
+            margin: 10px 0;
+            text-decoration: none;
+            border-bottom: 1px solid black;
+            font-size: 20px;
+            color: black;
+            text-align: center;
+            display: block;
+        }
+        .product-category a:hover{
+            margin: 10px 0;
+            text-decoration: none;
+            border-bottom: 1px solid black;
+            font-size: 20px;
+            color: white;
+            background: black;
+            text-align: center;
+            display: block;
+        }
         .product-detail table{
             display: block;
             padding-left: 45px;
@@ -213,28 +232,28 @@
     <aside>
         <section class="product-category">
             <div>
-                <p>生活</p>
+                <a href="category.php?category=生活">生活</a>
             </div>
             <div>
-                <p>服飾</p>
+                <a href="category.php?category=服飾">服飾</a>
             </div>
             <div>
-                <p>娛樂</p>
+                <a href="category.php?category=娛樂">娛樂</a>
             </div>
             <div>
-                <p>3C</p>
+                <a href="category.php?category=3C">3C</a>
             </div>
             <div>
-                <p>家電</p>
+                <a href="category.php?category=家電">家電</a>
             </div>
             <div>
-                <p>零食</p>
+                <a href="category.php?category=其他">其他</a>
             </div>
             <div>
-                <p>書</p>
+                <a href="category.php?category=零食">零食</a>
             </div>
             <div>
-                <p>其他</p>
+                <a href="category.php?category=書">書</a>
             </div>
         </section>
     </aside>
